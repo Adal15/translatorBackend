@@ -26,6 +26,10 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.json({ message: 'Translator Backend is running!', status: 'Healthy' });
+});
+
 app.post('/api/upload', upload.single('file'), async (req, res) => {
     try {
         if (!req.file) {
